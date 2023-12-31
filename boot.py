@@ -16,7 +16,7 @@ esp.osdebug(None)
 import gc
 gc.collect()
 
-import config
+import config # use config.py to set up sensitive info
 ssid = config.my_sid
 password = config.my_password
 mqtt_server = config.my_mqtt_server
