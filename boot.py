@@ -17,8 +17,8 @@ import gc
 gc.collect()
 
 import config # use config.py to set up sensitive info
-ssid = config.my_sid
-password = config.my_password
+ssid = config.my_ssid
+my_ssid_password = config.my_ssid_password
 mqtt_server = config.my_mqtt_server
 #EXAMPLE IP ADDRESS
 #mqtt_server = '192.168.1.144'
@@ -33,10 +33,14 @@ counter = 0
 
 station = network.WLAN(network.STA_IF)
 print(station.ifconfig())
+# station.disconnect()
+# station.active(False)
 
 if station.isconnected() == False:
     station.active(True)
-    station.connect(ssid, password)
+    station.connect(ssid, my_ssid_password)
+    
+    
 
     while station.isconnected() == False:
         pass
@@ -47,4 +51,5 @@ mac = ubinascii.hexlify(station.config('mac'),':').decode()
 
 client_id = f'ESP8266:{client_id.decode("utf-8")}-{mac}'
 
-webrepl.start()
+
+#webrepl.start()
