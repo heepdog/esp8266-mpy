@@ -1,4 +1,5 @@
 web*
 esp*
 ESP*
-.git
+.*
+micropython-wifi-setup*

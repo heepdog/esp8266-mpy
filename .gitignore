@@ -8,3 +8,4 @@ privkey.pem
 venv/
 webrepl*
 config.py
+lib/
